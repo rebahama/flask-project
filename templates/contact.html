@@ -1,4 +1,7 @@
 {%extends "base.html"%}
 {%block content%}
     <h2>{{page_title}}</h2>
+    {% for countrie in countries %}
+    <p>{{ countrie }}</p>
+{% endfor %}
 {% endblock %}
