@@ -43,13 +43,15 @@ def contact():
 
 @app.route("/career")
 def career():
-    return render_template("career.html", page_title="Career")
+     data = []
+     with open("data/company.json", "r") as json_data:
+          data = json.load(json_data)
+     return render_template("career.html", page_title="Career",hello=data)
 
 
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP","0.0.0.0"),
         port=int(os.environ.get("PORT","5000")),
-        debug=False
+        debug=True
     )
-
